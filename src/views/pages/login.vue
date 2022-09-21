@@ -62,15 +62,23 @@ import { loginAPi } from '@/util/request';
                 // 调用请求的后台接口
                 loginAPi( data.loginData ).then(res =>{
                     console.log("登录的返回",res)
-                    if (res.status === 200){
-                        data.loginData.token = res.token
-                        store.commit('setUserInfo',data.loginData);
-                        localStorage.setItem("token",res.token)
-                        // 跳转到user页面
-                        router.push({
-                            path:"/users"
-                        })
-                    }
+                    // if (res.status === 200){
+                    //     data.loginData.token = res.token
+                    //     store.commit('setUserInfo',data.loginData);
+                    //     localStorage.setItem("token",res.token)
+                    //     // 跳转到user页面
+                    //     router.push({
+                    //         path:"/index"
+                    //     })
+                    // }
+                        if (res.status === 200){
+                            data.loginData.token = res.token
+                            store.commit('setUserInfo',data.loginData);
+                            localStorage.setItem("loginData",JSON.stringify(data.loginData))
+                            router.push({
+                                path:"/index"
+                            })
+                        }  
                 })
 
             // const handleLogin=()=>{  vuex更改语法

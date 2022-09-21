@@ -30,6 +30,11 @@ const routes = [
         path:"/goods",
         name:"goods",
         component: () => import("../views/pages/goodsList.vue")
+      },
+      {
+        path:"/index",
+        name:"index",
+        component: () => import("../views/pages/index.vue")
       }
     ]
   }
@@ -55,6 +60,7 @@ router.beforeEach((to,form,next)=>{
     next("/login")
   }else{
     next()
+    console.log("store",store.state.uInfo)
   }
 
 })

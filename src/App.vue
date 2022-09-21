@@ -22,4 +22,15 @@ body,html{
   display: flex;
   align-items: center;
 }
+.page_content{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+  margin-top: 30px;
+  background: #fff;
+}
+.el-main{
+  background: #efefef;
+}
 </style>
